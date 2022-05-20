@@ -5,15 +5,9 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = `asc`) {
-  return param === `desc`
-    ? [...arr].sort((a, b) => descCompare(a, b))
-    : [...arr].sort((a, b) => ascCompare(a, b));
+  return [...arr].sort((a, b) => compare(a, b, param === `desc` ? -1 : 1));
 }
 
-function ascCompare(x, y) {
-  return x.localeCompare(y, `ru`, { caseFirst: `upper` });
-}
-
-function descCompare(x, y) {
-  return -x.localeCompare(y, `ru`, { caseFirst: `upper` });
+function compare(x, y, order) {
+  return order * x.localeCompare(y, `ru`, { caseFirst: `upper` });
 }
