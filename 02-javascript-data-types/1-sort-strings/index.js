@@ -5,10 +5,16 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = `asc`) {
-  let sorted = [...arr].sort((a, b) => compare(a, b));
-  return param === `desc` ? sorted.reverse() : sorted;
+  //let sorted = [...arr].sort((a, b) => compare(a, b));
+  return param === `desc`
+    ? [...arr].sort((a, b) => descCompare(a, b))
+    : [...arr].sort((a, b) => ascCompare(a, b));
 }
 
-function compare(x, y) {
+function ascCompare(x, y) {
   return x.localeCompare(y, `ru`, { caseFirst: `upper` });
+}
+
+function descCompare(x, y) {
+  return -x.localeCompare(y, `ru`, { caseFirst: `upper` });
 }
