@@ -27,5 +27,5 @@ export function trimSymbols(string, size) {
       result.push(string[i]);
     }
   }
-  return result.join('');
+  return result.join("");
 }
