@@ -8,7 +8,7 @@ export function createGetter(path) {
     let arr = path.split(`.`);
     let i = 0;
     let value = obj[arr[i]];
-    while (value && i++ < arr.length - 1) {
+    while (value && i < arr.length - 1) {
       obj = value;
       ++i;
       value = obj[arr[i]];
