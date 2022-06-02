@@ -119,6 +119,5 @@ export default class SortableTable {
     if (this.element) {
       this.element.remove();
     }
-  }
 }
 
